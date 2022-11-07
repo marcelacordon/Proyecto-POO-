@@ -202,9 +202,153 @@ public class view {
     }
 
 
+
     public void invalido() {
         System.out.println("Ingrese un valor válido");
     }
 
-  
+    
+    /** 
+     * @param d
+     * @return restaurants
+     * Para agregar restaurantes
+     */
+    public restaurants restaurantenuevo(ArrayList<restaurants> d) {
+        boolean marco = true;
+        restaurants res = new restaurants();
+        boolean conti = false;
+        while (marco == true) {
+            System.out.println("Ingrese el nombre del restaurante:");
+            String name = sc.next();
+            String name2 = sc.nextLine();
+            name = name + name2;
+            for (int i = 0; i < d.size(); i++) {
+                if (name.equals(d.get(i).getName())) {
+                    System.out.println("Este lugar ya existe en nuestra lista, vuelve a intentarlo");
+                    conti = false;
+                    marco = false;
+                    break;
+                } else {
+                    conti = true;
+                }
+            }
+            if (conti == true) {
+                System.out.println("Ingrese la dirección del restaurante:");
+                String direccion = sc.next();
+                String direccion2 = sc.nextLine();
+                direccion = direccion + direccion2;
+                System.out.println("Ingrese el horario del restaurante:");
+                String horario = sc.next();
+                String horario2 = sc.nextLine();
+                horario = horario + horario2;
+                System.out.println("Ingrese el telefono del restaurante:");
+                String tel = sc.next();
+                int per = 0;
+                int tot = 0;
+                res = new restaurants(name, direccion, horario, tel, per, tot);
+                System.out.println("Restaurante agregado! Gracias por tu contribucion");
+                marco = false;
+                break;
+            }
+        }
+        return res;
+    }
+
+    
+    /** 
+     * @param d
+     * @return partying
+     * para crear un nuevo party place
+     * 
+     */
+    public partying newpPartying(ArrayList<partying> d) {
+        boolean marco = true;
+        partying res = new partying();
+        boolean conti = false;
+        while (marco == true) {
+            System.out.println("Ingrese el nombre del lugar de fiesta:");
+            String name = sc.next();
+            String name2 = sc.nextLine();
+            name = name + name2;
+            for (int i = 0; i < d.size(); i++) {
+                if (name.equals(d.get(i).getName())) {
+                    System.out.println("Este lugar ya existe en nuestra lista, vuelve a intentarlo");
+                    conti = false;
+                    marco = false;
+                    break;
+                } else {
+                    conti = true;
+                }
+            }
+            if (conti == true) {
+                System.out.println("Ingrese la dirección:");
+                String direccion = sc.next();
+                String direccion2 = sc.nextLine();
+                direccion = direccion + direccion2;
+                System.out.println("Ingrese el horario del establecimiento:");
+                String horario = sc.next();
+                String horario2 = sc.nextLine();
+                horario = horario + horario2;
+                System.out.println("Ingrese el numero de telefono:");
+                String tel = sc.next();
+                int per = 0;
+                int tot = 0;
+                res = new partying(name, direccion, horario, tel, per, tot);
+                System.out.println(
+                        "Party place agregado! Gracias por tu contribucion, seguro muchos la podran pasar alegre y seguros gracias a ti!");
+                marco = false;
+                break;
+            }
+        }
+        return res;
+    }
+
+    
+    /** 
+     * @param d
+     * @return hangoutp
+     * para crear un nuevo hangout place
+     */
+    public hangoutp newhHangoutp(ArrayList<hangoutp> d) {
+        boolean marco = true;
+        hangoutp res = new hangoutp();
+        boolean conti = false;
+        while (marco == true) {
+            System.out.println("Ingrese el nombre del lugar de fiesta:");
+            String name = sc.next();
+            String name2 = sc.nextLine();
+            name = name + name2;
+            for (int i = 0; i < d.size(); i++) {
+                if (name.equals(d.get(i).getName())) {
+                    System.out.println("Este lugar ya existe en nuestra lista, vuelve a intentarlo");
+                    conti = false;
+                    marco = false;
+                    break;
+                } else {
+                    conti = true;
+                }
+            }
+            if (conti == true) {
+                System.out.println("Ingrese la dirección:");
+                String direccion = sc.next();
+                String direccion2 = sc.nextLine();
+                direccion = direccion + direccion2;
+                System.out.println("Ingrese el horario del establecimiento:");
+                String horario = sc.next();
+                String horario2 = sc.nextLine();
+                horario = horario + horario2;
+                System.out.println("Ingrese el numero de telefono:");
+                String tel = sc.next();
+                int per = 0;
+                int tot = 0;
+                res = new hangoutp(name, direccion, horario, tel, per, tot);
+                System.out.println(
+                        "Hangout place agregado! Gracias por tu contribucion, tal vez hacemos evento de reunion algun dia? Veremos!");
+                marco = false;
+                break;
+            }
+        }
+        return res;
+    }
+
 }

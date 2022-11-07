@@ -14,10 +14,9 @@ public class controlador {
     user userprincipal;
     
 
-
     
     public void work(){
-        archiv arch = new archiv();
+        
         des = view.principal();
         if(des == 1){
             //inicia sesion
@@ -42,7 +41,14 @@ public class controlador {
                     //ensena el restaurante que escogio
                 }
                 else if(elec == (restaurantes.size())){
-               
+                    restaurants newrest = view.restaurantenuevo(restaurantes);
+                    if (newrest.getName() != null){
+                        //si el restaurante si tiene un valor dado, si lo agrega, si no no
+                        restaurantes.add( newrest);
+                    }
+                    else{
+                        continue;
+                    }
                 }
                 else if (elec == (restaurantes.size()) + 1){
                     continue;
@@ -56,7 +62,14 @@ public class controlador {
                 }
                 else if(elec == (partyplaces.size())){
                     //agregar un nuevo party place
-          
+                    partying newrpart = view.newpPartying(partyplaces);
+                    if (newrpart.getName() != null){
+                        //si el lugar si tiene un valor dado, si lo agrega, si no no
+                        partyplaces.add( newrpart);
+                    }
+                    else{
+                        continue;
+                    }
                 }
                 else if (elec == (partyplaces.size()) + 1){
                     //regresar al menu
@@ -70,7 +83,14 @@ public class controlador {
                     view.printhangout(hgplaces.get(elec));
                 }
                 else if(elec == (hgplaces.size())){
-             
+                    hangoutp newrhHangoutp = view.newhHangoutp(hgplaces);
+                    if (newrhHangoutp.getName() != null){
+                        //si el lugar si tiene un valor dado, si lo agrega, si no no
+                        hgplaces.add( newrhHangoutp);
+                    }
+                    else{
+                        continue;
+                    }
                 }
                 else if (elec == (hgplaces.size()) + 1){
                     continue;
@@ -86,6 +106,8 @@ public class controlador {
             }
         }
    }
+
+
 
     
 }
