@@ -122,5 +122,4 @@ public class hangoutp extends lugar{
         
     }
     
-    
 }
