@@ -201,7 +201,9 @@ public class view {
                         }
     }
 
-
+    public void salir() {
+        System.out.println("Gracias por utilizar GO GAYS, esperamos que disfrute sus salidas seguras");
+    }
 
     public void invalido() {
         System.out.println("Ingrese un valor válido");

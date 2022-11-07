@@ -1,4 +1,4 @@
-
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class controlador {
@@ -14,9 +14,16 @@ public class controlador {
     user userprincipal;
     
 
+    public void getinfo() throws FileNotFoundException{
+        archiv arch = new archiv();
+        usuarios = arch.leerusers();//agrega los usuarios preexistentes
+        restaurantes = arch.restaurantes();//agrega los restaurantes preexistentes
+        hgplaces = arch.hangoutplace();//agrega los hangoutplaces preexistentes
+        partyplaces = arch.partyplace();//agrega los party places preexistentes
+    }
     
     public void work(){
-        
+        archiv arch = new archiv();
         des = view.principal();
         if(des == 1){
             //inicia sesion
@@ -101,13 +108,23 @@ public class controlador {
                 continue;
             }
             else if (cho == 5){
-
+                view.salir();//mensaje de despedida
+                arch.Escriturausers( usuarios);//agrega los usuarios de regreso a su archivo
+                arch.Escriturarests(restaurantes);//agrega los restaurantes de regreso a su archivo
+                arch.Escriturhangout(hgplaces);//agrega los hangout places de regreso a su archivo
+                arch.Escriturparty(partyplaces);//agrega los party places de regreso a su archivo
                 sesion = false;//termina el programa
             }
         }
    }
 
+    public ArrayList<user> getUsuarios() {
+        return usuarios;
+    }
 
+    public void setUsuarios(ArrayList<user> usuarios) {
+        this.usuarios = usuarios;
+    }
 
     
 }
