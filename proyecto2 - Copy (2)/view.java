@@ -423,5 +423,14 @@ public class view {
         }
     }
 
+    public void tiporeview (){
+        System.out.println("\nDe que tipo de lugar es tu review?\n1. Restaurantes\n2. Hangout Place\n3. Party Place");
+        des = sc.nextInt();
+
+    }
+
+    
+
+
 
 }
