@@ -13,6 +13,7 @@ public class controlador {
     ArrayList<hangoutp> hgplaces = new ArrayList<hangoutp>();
     user userprincipal;
     ArrayList<reviews> badrest = new ArrayList<reviews>();
+    ArrayList<reviews> badparty = new ArrayList<reviews>();
     ArrayList<reviews> badhang = new ArrayList<reviews>();
 
     public void getinfo() throws FileNotFoundException{
@@ -22,6 +23,7 @@ public class controlador {
         hgplaces = arch.hangoutplace();//agrega los hangoutplaces preexistentes
         partyplaces = arch.partyplace();//agrega los party places preexistentes
         badrest = arch.badreviewsres(); //crea los bad reviews de lugares
+        badparty = arch.badreviewspart();
         badhang = arch.badreviewshang();
     }
     
@@ -127,20 +129,38 @@ public class controlador {
                     view.badhang(badhang);
                 }
                 else if (cal == 3){
-                    continue;
+                    view.badparty(badparty);
                 }
                 else if (cal == 4){
                     view.tiporeview();
                     if (view.des == 1){
-                        continue;
+                        reviews s = view.addreview(userprincipal);
+                        if (s != null){
+                            badrest.add( s);
+                        }
+                        else{
+                            continue;
+                        }
 
                     }
                     else if (view.des == 2){
-                      continue;
+                        reviews s = view.addreview(userprincipal);
+                        if (s != null){
+                            badhang.add( s);
+                        }
+                        else{
+                            continue;
+                        }
 
                     }
                     else if (view.des == 3){
-                        continue;
+                        reviews s = view.addreview(userprincipal);
+                        if (s != null){
+                            badparty.add( s);
+                        }
+                        else{
+                            continue;
+                        }
                     }
                     else{
                         view.invalido();
@@ -158,6 +178,13 @@ public class controlador {
                 arch.Escriturhangout(hgplaces);//agrega los hangout places de regreso a su archivo
                 arch.Escriturparty(partyplaces);//agrega los party places de regreso a su archivo
                 sesion = false;//termina el programa
+                arch.Escriturareviews("badrest.txt", badrest);
+                arch.Escriturareviews("badparty.txt", badparty);
+                arch.Escriturareviews("badhang.txt", badhang);
+
+            }
+            else {
+                view.invalido();
             }
         }
    }

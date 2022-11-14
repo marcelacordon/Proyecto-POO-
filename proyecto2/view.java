@@ -430,7 +430,31 @@ public class view {
     }
 
     
-
+    /** agregar un review
+     * @param s
+     * @return reviews
+     */
+    public reviews addreview(user s){
+        reviews rev = new reviews();
+        System.out.println("Ingresa el nombre del lugar");
+        String lug = sc.next();
+        String lug2 = sc.nextLine();
+        lug = lug + lug2;
+        System.out.println("\nExplicanos lo que viviste:\n");
+        String comm = sc.next();
+        String comm2 = sc.nextLine();
+        comm = comm + comm2;
+        if (lug != null && comm != null){
+            rev = new reviews(s.getUserr(), lug, comm);
+            System.out.println("\nLamentamos mucho que hayas pasado por eso... Gracias por tener el coraje de contarlo para que los demás estemos prevenidos! ");
+        }
+        else {
+            System.out.println("Lo sentimos... no llenaste algunos datos, podrias volver a intentarlo?");
+        }
+ 
+        return rev;
+        
+    }
 
 
 }
