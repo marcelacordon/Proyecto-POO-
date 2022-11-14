@@ -12,7 +12,7 @@ public class controlador {
     ArrayList<partying> partyplaces = new ArrayList<partying>();
     ArrayList<hangoutp> hgplaces = new ArrayList<hangoutp>();
     user userprincipal;
-  
+
 
     public void getinfo() throws FileNotFoundException{
         archiv arch = new archiv();
@@ -117,7 +117,7 @@ public class controlador {
             }
             else if (cho == 4){
                 //BAD REVIEWS
-                continue;
+                
             }
             else if (cho == 5){
                 view.salir();//mensaje de despedida
@@ -127,6 +127,10 @@ public class controlador {
                 arch.Escriturparty(partyplaces);//agrega los party places de regreso a su archivo
                 sesion = false;//termina el programa
 
+
+            }
+            else{
+                view.invalido();
             }
         }
    }

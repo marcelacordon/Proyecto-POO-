@@ -11,6 +11,10 @@ public class archiv {
     ArrayList<restaurants> restaurantes = new ArrayList<restaurants>();
     ArrayList<partying> partyplaces = new ArrayList<partying>();
     ArrayList<hangoutp> hgplaces = new ArrayList<hangoutp>();
+    ArrayList<reviews> brrest = new ArrayList<reviews>();
+    ArrayList<reviews> bhang = new ArrayList<reviews>();
+    ArrayList<reviews> bpart = new ArrayList<reviews>();
+
 
     File filename;
     FileWriter w;
@@ -91,6 +95,62 @@ public class archiv {
         sc.close();
         return hgplaces;
     }
+
+        /** 
+     * @return ArrayList<hangoutp>
+     * @throws FileNotFoundException
+     */
+    public ArrayList<reviews> badreviewsres() throws FileNotFoundException{
+        this.filename = new File("badrest.txt");
+        //crea los bad reviews que tengo guardados
+        String[] data;
+        Scanner sc = new Scanner(filename);
+        while (sc.hasNextLine()) {
+            data =sc.nextLine().split(";");
+            reviews u = new reviews (data[0], data [1] , data[2]);
+            brrest.add(u);
+        } 
+        sc.close();
+        return brrest;
+    }
+
+        /** 
+     * @return ArrayList<hangoutp>
+     * @throws FileNotFoundException
+     */
+    public ArrayList<reviews> badreviewshang() throws FileNotFoundException{
+        this.filename = new File("badhang.txt");
+        //crea los bad reviews que tengo guardados
+        String[] data;
+        Scanner sc = new Scanner(filename);
+        while (sc.hasNextLine()) {
+            data =sc.nextLine().split(";");
+            reviews u = new reviews (data[0], data [1] , data[2]);
+            bhang.add(u);
+        } 
+        sc.close();
+        return bhang;
+    }
+
+        /** 
+     * @return ArrayList<hangoutp>
+     * @throws FileNotFoundException
+     */
+    public ArrayList<reviews> badreviewspart() throws FileNotFoundException{
+        this.filename = new File("badparty.txt");
+        //crea los bad reviews que tengo guardados
+        String[] data;
+        Scanner sc = new Scanner(filename);
+        while (sc.hasNextLine()) {
+            data =sc.nextLine().split(";");
+            reviews u = new reviews (data[0], data [1] , data[2]);
+            bpart.add(u);
+        } 
+        sc.close();
+        return bpart;
+    }
+
+
     
     /** 
      * @param Nombre_archivo
@@ -117,6 +177,34 @@ public class archiv {
             System.out.println("Excepcion" +e);}
 
         }
+
+        
+        /** escribe de regreso mis bad reviews
+         * @param file
+         * @param d
+         */
+        public void Escriturareviews(String file, ArrayList<reviews> d){
+
+            try{
+                filename= new File(file);
+                w= new FileWriter(filename);
+                bw= new BufferedWriter(w);
+                wr= new PrintWriter(bw);
+                for (int i = 0; i<d.size(); i++){
+                    wr.write(d.get(i).getUsuario());
+                    wr.write (";");
+                    wr.write(d.get(i).getLugar());
+                    wr.write (";");
+                    wr.write(d.get(i).getComentario());
+                    wr.write("\n");
+                }
+                wr.close();
+    
+    
+            }catch (Exception e){
+                System.out.println("Excepcion" +e);}
+    
+            }
 
         
         /** 

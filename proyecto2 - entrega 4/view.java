@@ -384,6 +384,44 @@ public class view {
     }
 
 
+    //
+    public int reviewmenu (){
+        System.out.println("\t\t\t\t\t\t\tBAD REVIEWS\n\n\t1. Restaurantes\n\t2. Hangout Places\n\t3. Party Places\n\t4. Agregar una");
+        des = sc.nextInt();
+        return des;
+    }
+
     
+    /** ver los bad reviews de restaurantes
+     * @param ArrayListd
+     */
+    public void badrest (ArrayList<reviews>d){
+        System.out.println("\t\t\t\t\t\t\tBAD REVIEWS DE RESTAURANTES\n\n");
+        for (int i = 0; i < d.size(); i ++){
+            System.out.println("\t\t\t\t\t\t"+d.get(i).getLugar()+"\n"+d.get(i).getUsuario()+": "+d.get(i).getComentario()+"\n\n");
+        }
+    }
+    
+    /** ver bad reviews de hangout places
+     * @param ArrayListd
+     */
+    public void badhang (ArrayList<reviews>d){
+        System.out.println("\t\t\t\t\t\t\tBAD REVIEWS DE HANGOUT PLACES\n\n");
+        for (int i = 0; i < d.size(); i ++){
+            System.out.println("\t\t\t\t\t\t"+d.get(i).getLugar()+"\n"+d.get(i).getUsuario()+": "+d.get(i).getComentario()+"\n\n");
+        }
+    }
+
+    
+    /** ver bad reviews de party places
+     * @param ArrayListd
+     */
+    public void badparty (ArrayList<reviews>d){
+        System.out.println("\t\t\t\t\t\t\tBAD REVIEWS DE PARTY PLACES\n\n");
+        for (int i = 0; i < d.size(); i ++){
+            System.out.println("\t\t\t\t\t\t"+d.get(i).getLugar()+"\n"+d.get(i).getUsuario()+": "+d.get(i).getComentario()+"\n\n");
+        }
+    }
+
 
 }
